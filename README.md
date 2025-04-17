@@ -52,6 +52,11 @@ Dataset memiliki 1.338 baris dan 7 buah kolom. Kolom disini terdiri dari fitur n
 
 ## Data Preparation
 
+- Memuat data secara langsung melalui url GitHub.
+- Melakukan check terhadap informasi dari data, apakah terdapat missing value maupun invalid data.
+- Melakukan check terhadap deskripsi statistik data untuk menarik insight data secara keseluruhan.
+- Melakukan check sekaligus menangani outlier (jika ada).
+- Melakukan analisis univariate dan multivariate.
 - Melakukan one-hot-encoding untuk fitur kategori. Hal ini bertujuan untuk mengubah fitur menjadi numerik agar dapat diproses oleh model machine learning.
 - Membagi data menjadi set pelatihan dan pengujian sebelum dilakukan standarisasi. Selain berfungsi untuk proses evaluasi, hal ini juga bertujuan agar tidak terjadi kebocoran data ketika melakukan proses pemodelan.
 - Melakukan standarisasi data menggunakan fungsi MinMaxScaler() dari sklearn, agar semua data memiliki rentang yang sama.
@@ -80,6 +85,25 @@ Pada bagian ini penulis menggunakan 3 algoritma dan melakukan perbandingan untuk
 ## Evaluation
 Pada bagian ini menggunakan 2 metrik evaluasi, yakni Mean Squared Error (MSE) dan Root Mean Squared Error (RMSE). Kedua metrik ini berfungsi untuk menilai seberapa baik model dapat memprediksi data latih berdasarkan nilai error.
 
-**Mean Squared Error (MSE)**: Digunakan untuk menghitung rata-rata kesalahan kuadrat dalam prediksi.
+![image](https://github.com/user-attachments/assets/961fdf99-967e-49be-b7f0-c09aa7586be1)
 
-**Root Mean Squared Error (RMSE)**: Digunakan untuk menghitung akar kuadrat dari MSE.
+- **Mean Squared Error (MSE)**: Digunakan untuk menghitung rata-rata kesalahan kuadrat dalam prediksi.
+  ![image](https://github.com/user-attachments/assets/f8efb10b-70a8-40e2-8230-b1029225f765)
+
+Berdasarkan hasil evaluasi MSE diatas, model Random Forest (RF) menunjukkan performa paling seimbang dan akurat di antara ketiga model. Hal ini menunjukkan bahwa RF mampu men-generalisasi data. Meskipun lebih tinggi sedikit dari Decision Tree pada proses pelatihannya, namun RF menghasilkan error paling kecil di data uji, yang menunjukkan kemampuannya untuk menghindari overfitting.
+
+- **Root Mean Squared Error (RMSE)**: Digunakan untuk menghitung akar kuadrat dari MSE.
+  ![image](https://github.com/user-attachments/assets/dab4a34d-a755-4e2a-bb68-46ea4c7563b4)
+
+Berdasarkan hasil evaluasi RMSE diatas, model Random Forest (RF) menunjukkan performa paling seimbang dan akurat di antara ketiga model. Hal ini menunjukkan bahwa RF mampu men-generalisasi data. Meskipun lebih tinggi sedikit dari Decision Tree pada proses pelatihannya, namun RF menghasilkan error paling kecil di data uji, yang menunjukkan kemampuannya untuk menghindari overfitting.
+
+## Hasil Akhir
+Bagian ini berisi tentang penjabaran dampak model yang telah dievaluasi terhadap **Business Understanding**
+
+![image](https://github.com/user-attachments/assets/040bf409-d581-4fe0-a6b6-2355cfc3ddb7)
+
+- Dari serangkaian fitur yang ada, fitur "smoker" merupakan fitur yang sangat berkorelasi dengan biaya medis. Gambar diatas menunjukkan bahwa jika pasien merokok maka potensi membayar biaya medis akan lebih besar daripada pasien yang tidak merokok.
+
+![image](https://github.com/user-attachments/assets/0abba90f-8083-49f5-a203-f7adcf0f57fa)
+
+- Biaya medis yang perlu dikeluarkan oleh pasien berdasarkan karakteristik tertentu dapat dilihat pada gambar di atas. Penulis telah mencoba untuk mengambil salah satu sampel data dari dataset dan model menunjukkan hasil tersebut. Terlihat bahwa Random Forest memberikan hasil yang hampir akurat, ini menunjukkan model memiliki performa yang baik dibanding model lainnya.
