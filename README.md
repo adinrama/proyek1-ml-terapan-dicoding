@@ -31,7 +31,9 @@ Salah satu pendekatan yang dapat digunakan untuk menganalisis biaya medis adalah
 
 ## Data Understanding
 
-Data yang digunakan pada studi kasus ini adalah [Medical Cost Personal](https://raw.githubusercontent.com/stedy/Machine-Learning-with-R-datasets/master/insurance.csv) yang berasal dari GitHub pembelajaran ML. Dataset memiliki 1.338 baris data dengan berbagai karakteristik dan biaya. Karakteristik disini terdiri dari fitur numerik dan non-numerik. Fitur numerik terdiri dari *age, bmi,* dan *children*. Sedangkan fitur non-numerik terdiri dari *sex, smoker,* dan *region*. Untuk fitur biaya *(charges)* sendiri merupakan label/target dalam format dollar Amerika.
+Data yang digunakan pada studi kasus ini adalah [Medical Cost Personal](https://raw.githubusercontent.com/stedy/Machine-Learning-with-R-datasets/master/insurance.csv) yang berasal dari GitHub pembelajaran ML. Pada satudi kasus ini, hanya akan menggunakan dataset ini sehingga tidak perlu menambahkan data lain atau melakukan penggabungan dataset lagi. Selain itu, dataset ini juga cukup bersih sehingga tidak terlalu banyak memerlukan proses data cleaning.
+
+Dataset memiliki 1.338 baris dan 7 buah kolom. Kolom disini terdiri dari fitur numerik dan non-numerik. Fitur numerik terdiri dari *age, bmi,* dan *children*. Sedangkan fitur non-numerik terdiri dari *sex, smoker,* dan *region*. Untuk fitur biaya *(charges)* sendiri merupakan label/target dalam format dollar Amerika.
 
 ### Variabel-variabel pada Medical Cost Personal dataset adalah sebagai berikut:
 - age : usia seseorang yang ditanggung biaya medisnya oleh asuransi kesehatan.
