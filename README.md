@@ -64,23 +64,23 @@ Dataset memiliki 1.338 baris dan 7 buah kolom. Kolom disini terdiri dari fitur n
 ## Modeling
 Pada bagian ini penulis menggunakan 3 algoritma dan melakukan perbandingan untuk mengetahui algoritma mana yang memberikan performa paling baik. Algoritma yang digunakan antara lain K-Nearest Neighbor, Decision Tree, dan Random Forest.
 
-**Alasan memilih K-Nearest Neighbor**: 
-- KNN adalah metode non-parametrik yang sangat baik untuk mendeteksi pola lokal dalam data.
-- Cocok untuk dataset yang tidak terlalu besar dan memiliki fitur numerik yang beragam.
-- KNN memprediksi nilai target dengan menghitung rata-rata dari nilai k tetangga terdekat, sehingga tidak membuat asumsi tentang distribusi data.
-- Dalam konteks prediksi biaya medis, KNN bisa bermanfaat karena memperhitungkan kemiripan pasien (usia, BMI, kebiasaan merokok, dll.) terhadap pasien lain yang sudah diketahui biayanya.
+- **K-Nearest Neighbor (KNN)**:
 
-**Alasan memilih Decision Tree**:
-- Decision Tree sangat bagus dalam menangani data dengan hubungan non-linear dan kompleks antar fitur.
-- Dapat menangani baik fitur numerik maupun kategori secara langsung tanpa perlu encoding yang rumit.
-- Mudah diinterpretasikan, sehingga berguna untuk menjelaskan pengaruh setiap fitur terhadap prediksi biaya medis.
-- Mampu memodelkan interaksi antar fitur, misalnya kombinasi "smoker = yes" dan "age > 50" mungkin menghasilkan biaya yang sangat tinggi.
+![image](https://github.com/user-attachments/assets/59d015f4-6e50-4ed7-b96d-4b98f2ac286b)
 
-**Alasan memilih Random Forest**:
-- Random Forest adalah ensemble method yang menggabungkan banyak decision tree, sehingga mengurangi risiko overfitting.
-- Memberikan prediksi yang stabil dan akurat dengan memanfaatkan kekuatan dari banyak pohon acak.
-- Sangat efektif untuk menangani dataset dengan banyak fitur dan mengurangi noise pada data.
-- Dapat memberikan feature importance, yaitu sejauh mana setiap fitur memengaruhi prediksi — berguna untuk analisis biaya medis lebih dalam.
+Cara kerja algoritma KNN adalah dengan lazy learning dan instance-based, yang artinya tidak membentuk model eksplisit saat training. Saat ada data baru, ia menghitung jarak ke semua data training, lalu memutuskan kelas berdasarkan mayoritas tetangganya.
+
+- **Decision Tree**:
+
+![image](https://github.com/user-attachments/assets/266459c5-ffe6-4992-939c-4684c0ed3819)
+
+Cara kerja algoritma decision tree adalah dengan membuat pohon keputusan berdasarkan fitur-fitur dalam data. Tujuannya adalah membagi data menjadi kelompok yang semakin homogen berdasarkan atribut terbaik.
+
+- **Random Forest**:
+
+![image](https://github.com/user-attachments/assets/b0156cef-6fac-4732-9dc0-3e4c204644e6)
+
+Cara kerja algoritma random forest hampir mirip dengan decision tree. Random forest akan menggunakan gabungan dari decision tree. Setiap pohon dilatih dari sampel acak data dan fitur, lalu hasil prediksi diambil dari voting rata-rata regresi.
 
 ## Evaluation
 Pada bagian ini menggunakan 2 metrik evaluasi, yakni Mean Squared Error (MSE) dan Root Mean Squared Error (RMSE). Kedua metrik ini berfungsi untuk menilai seberapa baik model dapat memprediksi data latih berdasarkan nilai error.
